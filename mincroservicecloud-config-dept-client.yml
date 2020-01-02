@@ -1,0 +1,42 @@
+spring: 
+  profiles:
+    active:
+    - dev
+---
+server:
+  port: 8001 
+spring: 
+  profiles: dev
+  application: 
+    name: mincroservicecloud-config-dept-client
+  datasource: 
+    type: com.alibaba.druid.pool.DuridDataSource
+    driver-class-name: org.gjt.mm.mysql.Driver
+    url: jdbc:mysql://localhost:3306/cloudDB01
+    username: root
+    password: 123456
+    dbcp2: 
+      min-idle: 5
+      initial-size: 5
+      max-total: 5
+      max-wait-millis: 200
+mybatis: 
+  config-location: classpath:mybatis/mybatis.cfg.xml            #mybatis配置文件所在路径
+  type-aliases-package: com.dangjian.springcloud.entites       
+  mapper-locations:
+  - classpath:mybatis/mapper/**/*.xml                           #mapper映射文件
+
+eureka:
+  client:
+    service-url:
+      #单机版 defaultZone: http://localhost:7001/eureka
+      defaultZone: http://eureka7001.com:7001/eureka/
+  instance:
+    instance-id: dept-8001.com                      #服务在注册中心显示的别名
+    prefer-ip-address: true                                       #显示ip地址
+
+info:
+  app_name: dangjian_mincroservicecloud_springcloudconfig01
+  company_name: www.dangjian.sgcc.com.cn
+  build.artifactId: $project.artifactId$
+  build.version: $project.version$  

@@ -73,8 +73,3 @@ eureka:
     instance-id: dept-8001.com                      #服务在注册中心显示的别名
     prefer-ip-address: true                                       #显示ip地址
 
-info:
-  app_name: dangjian_mincroservicecloud_springcloudconfig02
-  company_name: www.dangjian.sgcc.com.cn
-  build.artifactId: $project.artifactId$
-  build.version: $project.version$  
